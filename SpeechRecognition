@@ -1,0 +1,15 @@
+import speech_recognition as sr
+
+def speech_to_text():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Diga algo...")
+        audio = recognizer.listen(source)
+    try:
+        texto = recognizer.recognize_google(audio, language="pt-BR")
+        return texto
+    except sr.UnknownValueError:
+        print("Não consegui entender o que você disse.")
+    except sr.RequestError as e:
+        print(f"Erro ao fazer a requisição ao serviço de reconhecimento de fala: {e}")
+    return None
