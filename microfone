@@ -1,0 +1,2 @@
+texto_reconhecido = speech_to_text()
+print("Você disse:", texto_reconhecido)
